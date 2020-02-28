@@ -1,7 +1,7 @@
-# WikiFactCheck-en
+# WikiFactCheck-English
 
 This repository contains the data to accompany 
-'WikiFactCheck-en: Automated Fact-Checking of Claims from Wikipedia'.
+'Automated Fact-Checking of Claims from Wikipedia'.
   
 Contents as follows:
 ```
