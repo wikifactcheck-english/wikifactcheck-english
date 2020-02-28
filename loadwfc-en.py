@@ -55,7 +55,7 @@ def load_(pattern, lines=None, path=BASEDIR):
     '''
     parent = Path(path).expanduser()
     # parent.mkdir(exist_ok=True)
-    if 1 or not parent.exists():
+    if not parent.exists():
         path = '.'
         parent = Path(path)
 
