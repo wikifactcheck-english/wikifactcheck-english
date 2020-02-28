@@ -19,3 +19,22 @@ Contents as follows:
 
 As explained in the paper, the annotated portion of the corpus is split into `train` and `test` sets.
 The entirety of the data (including annotated as well as non-annotated) is contained in the `full` sets, split into 5 for space constraints.
+
+You may want to make use of the provided loading script to make use of the
+dataset in your code.
+```
+usage: loadwfc-en.py [-h] [-d] [-f]
+                     [-r [{train,test,full} [{train,test,full} ...]]]
+                     [-n NUMLINES] [-t {json,python}]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d, --download        download dataset
+  -f, --force           force re-download?
+  -r [{train,test,full} [{train,test,full} ...]], --read [{train,test,full} [{train,test,full} ...]]
+                        read from particular datasets (default: all)
+  -n NUMLINES, --numlines NUMLINES
+                        numlines to read from each one
+  -t {json,python}, --fmt {json,python}
+                        output format for --read option
+```
