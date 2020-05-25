@@ -1,7 +1,7 @@
 # WikiFactCheck-English
 
 This repository contains the data to accompany 
-'Automated Fact-Checking of Claims from Wikipedia'.
+['Automated Fact-Checking of Claims from Wikipedia'](http://www.lrec-conf.org/proceedings/lrec2020/pdf/2020.lrec-1.849.pdf).
   
 Contents as follows:
 ```
@@ -21,7 +21,7 @@ As explained in the paper, the annotated portion of the corpus is split into `tr
 The entirety of the data (including annotated as well as non-annotated) is contained in the `full` sets, split into 5 for space constraints.
 
 You may want to make use of the provided loading script to make use of the
-dataset in your code.
+dataset in your code. Tip: add the repository directory to your PATH so that you can use the script in your project folder.
 ```
 usage: loadwfc-en.py [-h] [-d] [-f]
                      [-r [{train,test,full} [{train,test,full} ...]]]
@@ -37,4 +37,20 @@ optional arguments:
                         numlines to read from each one
   -t {json,python}, --fmt {json,python}
                         output format for --read option
+```
+
+Citation:
+```bibtex
+@InProceedings{wikifactchkeng:2020:LREC,
+  author    = {Sathe, Aalok  and  Ather, Salar  and  Le, Tuan Manh  and  Perry, Nathan  and  Park, Joonsuk},
+  title     = {Automated Fact-Checking of Claims from Wikipedia},
+  booktitle      = {Proceedings of The 12th Language Resources and Evaluation Conference},
+  month          = {May},
+  year           = {2020},
+  address        = {Marseille, France},
+  publisher      = {European Language Resources Association},
+  pages     = {6874--6882},
+  url       = {https://www.aclweb.org/anthology/2020.lrec-1.849}
+}
+
 ```
