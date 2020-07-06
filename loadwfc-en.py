@@ -83,7 +83,6 @@ load_full  = partial(load_, 'full')  # full dataset, including non-annot.
 
 
 if __name__ == '__main__':
-    print('wikifactcheck-english')
     parser = ArgumentParser('wikifactcheck-english')
     parser.add_argument('-d', '--download', help='download dataset',
                         action='store_true', default=False)
