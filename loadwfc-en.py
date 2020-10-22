@@ -91,11 +91,13 @@ if __name__ == '__main__':
     datasets = ['train', 'test', 'full']
     parser.add_argument('-r', '--read', type=str, nargs='*',
                         choices=datasets,
-                        help='read from particular datasets (default: all)')
+                        help='read from particular datasets (default: none)')
     parser.add_argument('-n', '--numlines', type=int, default=None,
                         help='numlines to read from each one')
     parser.add_argument('-t', '--fmt', help='output format for --read option',
                         default='json', choices=['json', 'python'])
+    # parser.add_argument('-z', '--shuffle', 
+    #                     help='shuffle the split to output from')
     args = parser.parse_args()
 
     if args.download:
@@ -111,4 +113,5 @@ if __name__ == '__main__':
                 else:
                     print(item)
                 ctr += 1
-
+    else:
+        print('no data split chosen to read, exiting')
