@@ -123,26 +123,26 @@ class WikiFactCheck(datasets.GeneratorBasedBuilder):
             datasets.SplitGenerator(name=datasets.Split.VALIDATION, gen_kwargs={"filepath": downloaded_files["dev"]}),
         ]
 
-    def _generate_examples(self, filepath, refsdir='utf-refdata', split=None):
+    def _generate_examples(self, filepath, refsdir='utf-refdata', 
+                           cache_dir=None, split=None):
         """This function returns the examples in the raw (text) form."""
         logging.info("generating examples from = %s", filepath)
         with open(filepath, encoding="utf-8") as f:
+            errors = 0
+            
             for i, line in tqdm(enumerate(f)):
                 if i == 0: continue
                     
-                errors = 0
                 try:
                     ix, url, context, id_, refuted, claim, evidence_file = line.split('\t')
                 except ValueError:
-                    print('ERROR: skipping line.', line)
+                    # print('ERROR: skipping line.', line)
                     errors += 1
                     continue
-                    
-                print(f'INFO: encountered {errors} errors processing {filepath}')
-                    
+                                        
                 evidence_path = refsdir + '/' + evidence_file.strip()
                 with open(evidence_path, 'r') as e:
-                    evidence = re.sub(r"[\n\t\s]*", ' ', e.read())
+                    evidence = re.sub(r"[\n\t\s]+", ' ', e.read())
                     
                 # yield two training examples (supported and refuted) from this
                 # datapoint.
@@ -163,6 +163,9 @@ class WikiFactCheck(datasets.GeneratorBasedBuilder):
                     "evidence": evidence,
                     "id": id_,
                 }
+            
+            print(f'INFO: encountered {errors} errors processing {filepath}')
+            
                     
 #             for article in squad["data"]:
 #                 title = article.get("title", "").strip()
