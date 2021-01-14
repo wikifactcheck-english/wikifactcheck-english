@@ -166,24 +166,3 @@ class WikiFactCheck(datasets.GeneratorBasedBuilder):
             
             print(f'INFO: encountered {errors} errors processing {filepath}')
             
-                    
-#             for article in squad["data"]:
-#                 title = article.get("title", "").strip()
-#                 for paragraph in article["paragraphs"]:
-#                     context = paragraph["context"].strip()
-#                     for qa in paragraph["qas"]:
-#                         question = qa["question"].strip()
-#                         id_ = qa["id"]
-
-#                         answer_starts = [answer["answer_start"] for answer in qa["answers"]]
-#                         answers = [answer["text"].strip() for answer in qa["answers"]]
-
-#                         # Features currently used are "context", "question", and "answers".
-#                         # Others are extracted here for the ease of future expansions.
-#                         yield id_, {
-#                             "claim": title,
-#                             "refuted": title,
-#                             "context": context,
-#                             "evidence": EvIdEnCe,
-#                             "id": id_,
-#                         }
